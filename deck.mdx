@@ -1,0 +1,83 @@
+export { default as theme } from './theme'
+import { Appear } from 'mdx-deck'
+import { FullScreenCode } from 'mdx-deck/layouts'
+
+# TypeScript: Introduction 🤯
+A JavaScript superset with types™
+---
+# What is TypeScript? 🤔
+---
+
+# Why TypeScript? 🤷
+
+---
+- such
+- and such 
+- If you have ever wondered if your function was receiving the espected values,
+and had to open the `console` in your Chrome Dev tools. I have the tool for you!
+---
+## Basic Types
+* Boolean
+* Number
+* String
+* Array
+* Object
+* Null
+* Undefined
+---
+### ... there is more!
+* Tuple
+* Enum
+* Any
+* Void
+* Never
+---
+## Boolean
+Can be either `true` or `false`
+
+```js
+const isHuman: boolean = true;
+```
+---
+## Number
+All numbers are floating-point values. There is not distinction between integers
+and floats.
+
+```js
+const age: number = 20;
+const bankAccount: number = 10_000_000; // Comma separations!
+const potatos: number = 12_3_45.14_5; // This is also valid
+```
+---
+## String
+As its name implies, it stores strings.
+
+```js
+const fullName: string = 'Jose Santos';
+```
+---
+## Array
+Similar to arrays in JavaScript. Can be written in two ways:
+
+```js
+const animals: string[] = ['cows', 'chickens', 'horses'];
+
+// OR
+
+const animals: Array<string> = ['cows', 'chickens', 'horses'];
+```
+---
+## Tuple
+This may sound familiar if you have worked with Functional code. If you haven't
+don't fret. It is useful when you have a fixed-length array, and you know each
+element's type:
+
+```js
+const userTuple: [string, number] = ['Jose Santos', 10_000_000];
+```
+
+
+---
+## Type assertion
+
+---

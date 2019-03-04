@@ -5,6 +5,11 @@
   "main": "index.js",
   "author": "Jose Santos <josemsantos1994@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "build": "mdx-deck build deck.mdx",
+    "pdf": "mdx-deck pdf deck.mdx"
+  },
   "devDependencies": {
     "mdx-deck": "^1.10.0"
   }
