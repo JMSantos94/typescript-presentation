@@ -1,0 +1,11 @@
+{
+  "name": "typescript-presentation",
+  "version": "1.0.0",
+  "description": "Introduction to TypeScript",
+  "main": "index.js",
+  "author": "Jose Santos <josemsantos1994@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mdx-deck": "^1.10.0"
+  }
+}
