@@ -1,5 +1,5 @@
 export { default as theme } from './theme';
-import { Appear } from 'mdx-deck';
+import { Appear, Image } from 'mdx-deck';
 import { FullScreenCode } from 'mdx-deck/layouts';
 
 # TypeScript: Introduction 🤯
@@ -228,3 +228,128 @@ mySearch = function(source: string, subString: string): boolean {
 - Triple-Slash Directives
 - Type Checking JavaScript Files
 ---
+# Examples 🤩
+---
+## Functional Component
+
+```jsx
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const Button = ({ onClick: handleClick, children }) => (
+  <button onClick={handleClick}>{children}</button>
+);
+
+Button.propTypes = {
+  onClick: PropTypes.func,
+  children: PropTypes.node
+};
+```
+---
+### Typed
+
+```jsx
+import React, { MouseEvent, ReactNode } from 'react'
+
+type Props = {
+ onClick(e: MouseEvent<HTMLElement>): void
+ children?: ReactNode
+}
+
+const Button = ({ onClick: handleClick, children }: Props) => (
+  <button onClick={handleClick}>{children}</button>
+)
+```
+---
+### We can do better!
+The `@types/react` includes the `FC` type. Alias to `interface FunctionComponent`.
+
+```jsx
+import React, { MouseEvent, FC } from 'react'
+
+type Props = { onClick(e: MouseEvent<HTMLElement>): void }
+
+const Button: FC<Props> = ({ onClick: handleClick, children }) => (
+  <button onClick={handleClick}>{children}</button>
+)
+```
+---
+### Class Component
+
+```jsx
+type MyProps = {
+  // using `interface` is also ok
+  message: string;
+};
+
+type MyState = {
+  count: number; // like this
+};
+
+// React.Component marks thing as `readonly`, immutability ftw!
+class App extends React.Component<MyProps, MyState> {
+  state: MyState = {
+    // optional second annotation for better type inference
+    count: 0
+  };
+  render() {
+    return (
+      <div>
+        {this.props.message} {this.state.count}
+      </div>
+    );
+  }
+}
+```
+---
+# Where do I start? 🤓
+---
+Install TypeScript
+```bash
+npm install -g typescript
+```
+---
+Create a file with a `.ts` extension
+
+```js
+function greeter(person) {
+    return "Hello, " + person;
+}
+
+let user = "Jose User";
+
+document.body.innerHTML = greeter(user);
+```
+---
+Now we can compile our code with:
+
+```bash
+tsc filename.ts
+```
+---
+# Others
+
+Checkout:
+https://github.com/Microsoft/TypeScript-React-Starter
+
+Or:
+https://codesandbox.io/s/
+---
+# IDE Integration
+
+Checkout: https://code.visualstudio.com/docs/languages/typescript
+
+---
+# Questions? 🧐
+---
+# Thanks ❤️
+---
+Slides are available here:
+
+https://github.com/JMSantos94/typescript-presentation
+---
+
+<img
+  src="https://media1.tenor.com/images/98b390f996f841f7e8915421c110d77a/tenor.gif?itemid=4000284"
+  height="600px"
+/>
