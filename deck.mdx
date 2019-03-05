@@ -1,20 +1,26 @@
-export { default as theme } from './theme'
-import { Appear } from 'mdx-deck'
-import { FullScreenCode } from 'mdx-deck/layouts'
+export { default as theme } from './theme';
+import { Appear } from 'mdx-deck';
+import { FullScreenCode } from 'mdx-deck/layouts';
 
 # TypeScript: Introduction 🤯
 A JavaScript superset with types™
 ---
 # What is TypeScript? 🤔
 ---
-
-# Why TypeScript? 🤷
-
+## JavaScript + ES-Next + Additional Features = TypeScript
 ---
-- such
-- and such 
-- If you have ever wondered if your function was receiving the espected values,
+# Why TypeScript? 🤷
+---
+- **Compilation vs. Transpilation**
+- **Strong Static Typing**
+- **Support type definitions**
+- **Strict null checks**
+- **Enhanced IDE support**
+- **ES-next compliance**
+```notes
+If you have ever wondered if your function was receiving the espected values,
 and had to open the `console` in your Chrome Dev tools. I have the tool for you!
+```
 ---
 ## Basic Types
 * Boolean
@@ -76,8 +82,149 @@ element's type:
 const userTuple: [string, number] = ['Jose Santos', 10_000_000];
 ```
 
-
 ---
-## Type assertion
+## Enum
+Gives friendly names to numeric values
 
+```js
+enum Color {Red, Green, Blue}
+const c: Color = Color.Green;
+```
+Behind the scenes `Read = 0`, and so forth.
+However you can change that!
+
+```js
+enum Color {Red = 1, Green, Blue = 5}
+```
+You can also access the enumerator's corresponding name, if we have its value:
+
+```js
+enum Color {Red = 1, Green, Blue}
+const colorName: string = Color[2];
+```
+---
+## Any
+As you have guessed, variables of `any` type can store ... any type!
+
+```js
+const notSure: any = 4;
+notSure = "maybe a string instead";
+notSure = false; 
+```
+**Note**: avoid if possible!
+---
+## Void
+Opposite of `any`. Useful with functions that return nothing.
+
+```js
+function logErrors(): void {
+    console.log("This is fine! ☕🔥");
+}
+```
+
+Don't use it for variables.
+```js
+const life: void = undefined; // or null
+```
+---
+## Null and Undefined
+All types can also be of type `null` or `undefined`. 
+
+However, I recommend using
+the flag `--strictNullChecks` which will force you to explicitly allow them.
+
+```js
+const dummyVariable: string | undefined | null;
+```
+---
+## Never
+/\* Skipped for the sake of time \*/
+---
+## Object
+Anything that is not `number`, `string`, `boolean`, `symbol`, `null`, or
+`undefined`.
+```js
+function getKeys(obj: object){ /* ... */ }
+```
+**Note**: We prefer to use **interfaces** rather than using `object`.
+---
+# Reusable Types ✨
+---
+We can write our own custom types using `interfaces`. 
+
+```js
+interface Person {
+    firstName: string;
+    lastName: string;
+}
+
+function fullName(p: Person): string {
+    return p.firstName + p.lastName;
+}
+```
+---
+Optional fields (`?`)
+
+```js
+interface SquareConfig {
+    color?: string;
+    width?: number;
+}
+```
+---
+Read-only
+
+```js
+interface Point {
+    readonly x: number;
+    readonly y: number;
+}
+
+const p: Point = { x: 1, y: 2 };
+p.x = 5; // Error!
+
+```
+---
+You can also define properties of other `Objects` such as functions.
+
+```js
+interface SearchFunc {
+    (source: string, subString: string): boolean;
+}
+
+let mySearch: SearchFunc;
+mySearch = function(source: string, subString: string): boolean {
+    let result = source.search(subString);
+    return result > -1;
+}
+```
+---
+# That's all for this introduction!
+---
+## Missed concepts
+
+- Interfaces (deeper dive)
+- Classes
+- Functions
+- Generics
+- Enums (deeper dive)
+- Type Inference
+---
+## Missed Concepts (Part 2)
+- Type Compatibility
+- Advanced Types
+- Symbols
+- Iterators and Generators
+- Modules
+- Namespaces
+- Namespaces and Modules
+---
+## Missed Concepts (Part 3)
+- Module Resolution
+- Declaration Merging
+- JSX
+- Decorators
+- Mixins
+- Triple-Slash Directives
+- Type Checking JavaScript Files
 ---
